@@ -3,22 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحه اصلی من</title>
+    <title>صفحه شخصی | salari2026</title>
     <style>
-        body {
-            font-family: Tahoma, sans-serif;
-            text-align: center;
-            padding: 50px;
-            background-color: #f4f4f9;
-            color: #333;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        h1 {
-            color: #0066cc;
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* بخش هدر و معرفی اولیه */
+        header {
+            background: linear-gradient(135deg, #0d6efd, #0a58ca);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* بدنه اصلی سایت */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            color: #0b5ed7;
+        }
+
+        /* کارت‌ها */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: #111;
+            margin-bottom: 10px;
+        }
+
+        /* فوتر و راه‌های ارتباطی */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: #212529;
+            color: white;
+            margin-top: 50px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #0d6efd;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #0b5ed7;
         }
     </style>
 </head>
 <body>
-    <h1>به وب‌سایت من خوش آمدید! 🎉</h1>
-    <p>این اولین صفحه اصلی وب‌سایت من است که روی گیت‌هاب ساخته شده.</p>
+
+    <!-- هدر سایت -->
+    <header>
+        <h1>به وب‌سایت من خوش آمدید 👋</h1>
+        <p>توسعه‌دهنده وب و علاقه‌مند به تکنولوژی و طراحی</p>
+    </header>
+
+    <!-- بخش کارت‌ها -->
+    <div class="container">
+        <h2 class="section-title">بخش‌های وب‌سایت</h2>
+        
+        <div class="grid">
+            <div class="card">
+                <h3>🚀 پروژه‌ها</h3>
+                <p>در این بخش پروژه‌ها و نمونه کارهای من قرار خواهند گرفت.</p>
+                <a href="#" class="btn">مشاهده پروژه‌ها</a>
+            </div>
+
+            <div class="card">
+                <h3>📚 درباره من</h3>
+                <p>رزومه، مهارت‌ها و اهداف من در دنیای برنامه‌نویسی و طراحی.</p>
+                <a href="#" class="btn">بیشتر بخوانید</a>
+            </div>
+
+            <div class="card">
+                <h3>📬 تماس با من</h3>
+                <p>راه‌های ارتباطی برای همکاری یا ارسال پیام.</p>
+                <a href="#" class="btn">ارتباط با من</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- فوتر -->
+    <footer>
+        <p>© 2026 طراحی و ساخته شده با گیت‌هاب | salari2026</p>
+    </footer>
+
 </body>
 </html>
