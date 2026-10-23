@@ -3,140 +3,483 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحه شخصی | salari2026</title>
+    <title>دفتر شعر و ادبیات | salari2026</title>
+    <!-- فونت‌های کلاسیک فارسی -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
     <style>
+        :root {
+            --bg-paper: #f4efe6;
+            --page-bg: #fdfbf7;
+            --text-main: #2c221e;
+            --text-sub: #6b533f;
+            --accent: #8b5a2b;
+            --border-color: #d4c4ac;
+            --border-light: #e3d5c2;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: #f8f9fa;
-            color: #333;
-            line-height: 1.6;
+            background-color: var(--bg-paper);
+            color: var(--text-main);
+            font-family: 'Vazirmatn', sans-serif;
+            line-height: 1.8;
+            padding: 20px 10px;
         }
 
-        /* بخش هدر و معرفی اولیه */
+        /* ساختار اصلی به شکل یک کتاب باز */
+        .book-container {
+            max-width: 850px;
+            margin: 20px auto;
+            background-color: var(--page-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            box-shadow: 0 10px 30px rgba(44, 34, 30, 0.08), 
+                        inset 0 0 50px rgba(212, 196, 172, 0.25);
+            padding: 40px 30px;
+            position: relative;
+        }
+
+        /* حاشیه تزیینی کلاسیک */
+        .book-container::before {
+            content: '';
+            position: absolute;
+            top: 15px; right: 15px; bottom: 15px; left: 15px;
+            border: 1px solid var(--border-color);
+            pointer-events: none;
+        }
+
+        /* سربرگ و ناوبری */
         header {
-            background: linear-gradient(135deg, #0d6efd, #0a58ca);
-            color: white;
-            padding: 60px 20px;
             text-align: center;
+            border-bottom: 2px double var(--border-color);
+            padding-bottom: 25px;
+            margin-bottom: 35px;
         }
 
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+        .site-title {
+            font-family: 'Amiri', serif;
+            font-size: 2.6rem;
+            color: #4a3325;
+            margin-bottom: 8px;
+            font-weight: 700;
         }
 
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
+        .site-subtitle {
+            font-size: 0.95rem;
+            color: var(--text-sub);
+            font-style: italic;
+            margin-bottom: 20px;
         }
 
-        /* بدنه اصلی سایت */
-        .container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
+        /* منوی کلاسیک */
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+            padding: 4px 8px;
+        }
+
+        nav a:hover {
+            color: #4a3325;
+            border-bottom: 1px solid var(--accent);
+        }
+
+        /* بخش شعر اصلی (Hero Section) */
+        .featured-poem {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .poem-badge {
+            display: inline-block;
+            font-size: 0.8rem;
+            background-color: #eee5d8;
+            color: var(--text-sub);
+            padding: 2px 12px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .poem-title {
+            font-family: 'Amiri', serif;
+            font-size: 1.8rem;
+            color: #3b281c;
+            margin-bottom: 20px;
+        }
+
+        .poem-image {
+            max-width: 100%;
+            width: 500px;
+            height: auto;
+            margin: 0 auto 25px auto;
+            border: 1px solid var(--border-color);
+            padding: 6px;
+            background: #fff;
+            border-radius: 4px;
+        }
+
+        .poem-image img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 2px;
+        }
+
+        .poem-text {
+            font-family: 'Amiri', serif;
+            font-size: 1.35rem;
+            line-height: 2.3;
+            color: var(--text-main);
+            white-space: pre-line;
+            margin-bottom: 25px;
+        }
+
+        .audio-player {
+            background-color: #f5efe6;
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 15px;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        .audio-player p {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            margin-bottom: 8px;
+        }
+
+        audio {
+            width: 100%;
+            height: 36px;
+        }
+
+        /* بخش کامنت‌ها و دیدگاه‌ها زیر شعر */
+        .comments-section {
+            background-color: #faf6f0;
+            border: 1px solid var(--border-light);
+            border-radius: 6px;
+            padding: 25px;
+            margin: 40px 0;
         }
 
         .section-title {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 1.8rem;
-            color: #0b5ed7;
+            font-family: 'Amiri', serif;
+            font-size: 1.4rem;
+            color: #4a3325;
+            margin-bottom: 15px;
+            border-right: 3px solid var(--accent);
+            padding-right: 10px;
         }
 
-        /* کارت‌ها */
-        .grid {
+        .comment-form input, 
+        .comment-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            background-color: #fff;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .comment-form button {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Vazirmatn', sans-serif;
+            font-weight: 500;
+        }
+
+        .comment-form button:hover {
+            background-color: #6b431e;
+        }
+
+        .comments-list {
+            margin-top: 25px;
+            border-top: 1px dashed var(--border-color);
+            padding-top: 15px;
+        }
+
+        .comment-item {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .comment-author {
+            font-weight: bold;
+            font-size: 0.9rem;
+            color: #4a3325;
+        }
+
+        .comment-date {
+            font-size: 0.75rem;
+            color: #a38f75;
+            margin-right: 8px;
+        }
+
+        .comment-text {
+            font-size: 0.9rem;
+            color: var(--text-main);
+            margin-top: 5px;
+        }
+
+        /* بخش دکلمه‌ها */
+        .grid-2 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 20px;
+            margin-bottom: 40px;
         }
 
         .card {
-            background: white;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            background-color: #faf6f0;
+            border: 1px solid var(--border-light);
+            padding: 18px;
+            border-radius: 4px;
         }
 
         .card h3 {
-            color: #111;
+            font-family: 'Amiri', serif;
+            font-size: 1.15rem;
+            color: #3b281c;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            font-size: 0.85rem;
+            color: var(--text-sub);
             margin-bottom: 10px;
         }
 
-        /* فوتر و راه‌های ارتباطی */
+        .card-link {
+            font-size: 0.85rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* بخش درباره شاعر */
+        .about-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background-color: #faf6f0;
+            border: 1px solid var(--border-light);
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .about-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            object-fit: cover;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        /* بخش شبکه‌های اجتماعی و ارتباطات */
+        .social-section {
+            text-align: center;
+            background-color: #f5efe6;
+            border: 1px dashed var(--border-color);
+            padding: 25px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #e8ded0;
+            color: #3b281c;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+
+        .social-btn:hover {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        /* فوتر */
         footer {
             text-align: center;
-            padding: 30px 20px;
-            background-color: #212529;
-            color: white;
-            margin-top: 50px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-light);
+            font-size: 0.8rem;
+            color: #9c8770;
         }
 
-        .btn {
-            display: inline-block;
-            background-color: #0d6efd;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 6px;
-            text-decoration: none;
-            margin-top: 15px;
-            font-weight: bold;
-        }
-
-        .btn:hover {
-            background-color: #0b5ed7;
+        @media (max-width: 600px) {
+            .book-container {
+                padding: 25px 15px;
+            }
+            .site-title {
+                font-size: 2rem;
+            }
+            .poem-text {
+                font-size: 1.15rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- هدر سایت -->
-    <header>
-        <h1>به وب‌سایت من خوش آمدید 👋</h1>
-        <p>توسعه‌دهنده وب و علاقه‌مند به تکنولوژی و طراحی</p>
-    </header>
-
-    <!-- بخش کارت‌ها -->
-    <div class="container">
-        <h2 class="section-title">بخش‌های وب‌سایت</h2>
+    <div class="book-container">
         
-        <div class="grid">
-            <div class="card">
-                <h3>🚀 پروژه‌ها</h3>
-                <p>در این بخش پروژه‌ها و نمونه کارهای من قرار خواهند گرفت.</p>
-                <a href="#" class="btn">مشاهده پروژه‌ها</a>
+        <!-- ۱. سربرگ و منو -->
+        <header>
+            <h1 class="site-title">خلوتِ شعر</h1>
+            <p class="site-subtitle">دست‌نوشته‌ها، دکلمه‌ها و سروده‌های salari2026</p>
+            <nav>
+                <ul>
+                    <li><a href="#featured">شعر روز</a></li>
+                    <li><a href="#comments">دیدگاه‌ها</a></li>
+                    <li><a href="#deklameh">دکلمه‌ها</a></li>
+                    <li><a href="#about">درباره شاعر</a></li>
+                    <li><a href="#social">شبکه‌های اجتماعی</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- ۲. شعر روز به همراه عکس و دکلمه -->
+        <section id="featured" class="featured-poem">
+            <span class="poem-badge">آخرین سروده</span>
+            <h2 class="poem-title">« بازگشت به خویشتن »</h2>
+
+            <div class="poem-image">
+                <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80" alt="تصویر شعر">
             </div>
 
-            <div class="card">
-                <h3>📚 درباره من</h3>
-                <p>رزومه، مهارت‌ها و اهداف من در دنیای برنامه‌نویسی و طراحی.</p>
-                <a href="#" class="btn">بیشتر بخوانید</a>
+            <div class="poem-text">
+بی تو هر شب کوچه را پیموده‌ام
+خاطراتت را به جان اندوده‌ام
+
+در سکوتِ سردِ این بوم و بر
+نامِ زیبایت به لب بسروده‌ام
+
+چون پرستوهای بی‌نام و نشان
+روی شاخسار زمان آسوده‌ام
             </div>
 
-            <div class="card">
-                <h3>📬 تماس با من</h3>
-                <p>راه‌های ارتباطی برای همکاری یا ارسال پیام.</p>
-                <a href="#" class="btn">ارتباط با من</a>
+            <div class="audio-player">
+                <p>🎙️ بشنوید با صدای شاعر (دکلمه اختصاصی):</p>
+                <audio controls>
+                    <source src="" type="audio/mpeg">
+                    مرورگر شما از پخش صوت پشتیبانی نمی‌کند.
+                </audio>
             </div>
-        </div>
+        </section>
+
+        <!-- ۳. بخش جدید کامنت‌ها زیر شعر -->
+        <section id="comments" class="comments-section">
+            <h2 class="section-title">دیدگاه‌ها و اشعار شما</h2>
+            
+            <form class="comment-form" onsubmit="event.preventDefault(); alert('با تشکر، دیدگاه شما ثبت شد.');">
+                <input type="text" placeholder="نام یا تخلص شما..." required>
+                <input type="email" placeholder="ایمیل (نمایش داده نمی‌شود)...">
+                <textarea rows="4" placeholder="نظرتان را بنویسید یا شعر خود را به اشتراک بگذارید..." required></textarea>
+                <button type="submit">ارسال دیدگاه</button>
+            </form>
+
+            <div class="comments-list">
+                <div class="comment-item">
+                    <span class="comment-author">علی‌رضا</span>
+                    <span class="comment-date">۲ ساعت پیش</span>
+                    <div class="comment-text">چقدر بیت دوم بر دلم نشست. قلمتان همیشه نویسا باد.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ۴. آرشیو دکلمه‌ها -->
+        <section id="deklameh">
+            <h2 class="section-title">آرشیو دکلمه‌ها</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>🎙️ دکلمه: شب‌های بارانی</h3>
+                    <p>زمان: ۰۲:۴۵ | اجرا با موسیقی زمینه سنتی</p>
+                    <a href="#" class="card-link">شنیدن دکلمه ←</a>
+                </div>
+                <div class="card">
+                    <h3>🎙️ دکلمه: قصه زمستان</h3>
+                    <p>زمان: ۰۳:۱۰ | خوانش آخرین شعر دفتر زمستان</p>
+                    <a href="#" class="card-link">شنیدن دکلمه ←</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ۵. درباره شاعر -->
+        <section id="about">
+            <h2 class="section-title">درباره شاعر</h2>
+            <div class="about-section">
+                <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=300&q=80" alt="عکس شاعر" class="about-avatar">
+                <div class="about-text">
+                    <p>سلام، به دفتر کوچک من خوش آمدید. در این وب‌سایت، شعرها و خوانش‌های صوتی‌ام را قرار می‌دهم تا با اهالی ادبیات و همراهان گرامی در ارتباط باشم.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ۶. بخش شبکه‌های اجتماعی و پل‌های ارتباطی -->
+        <section id="social" class="social-section">
+            <h2 class="section-title" style="border:none; text-align:center;">شبکه‌های اجتماعی و ارتباط با شاعران</h2>
+            <p style="font-size: 0.9rem; color: var(--text-sub);">می‌توانید در شبکه‌های اجتماعی زیر با من در ارتباط باشید یا از وب‌سایت بقیه شاعران دیدن کنید:</p>
+            
+            <div class="social-links">
+                <a href="https://instagram.com" target="_blank" class="social-btn">📱 اینستاگرام</a>
+                <a href="https://t.me" target="_blank" class="social-btn">✈️ تلگرام</a>
+                <a href="mailto:your-email@example.com" class="social-btn">📧 ایمیل مستقیم</a>
+                <a href="https://github.com/salari2026" target="_blank" class="social-btn">💻 گیت‌هاب</a>
+            </div>
+        </section>
+
+        <!-- ۷. فوتر -->
+        <footer>
+            <p>© 2026 | تمامی حقوق برای دفتر شعر salari2026 محفوظ است.</p>
+        </footer>
+
     </div>
-
-    <!-- فوتر -->
-    <footer>
-        <p>© 2026 طراحی و ساخته شده با گیت‌هاب | salari2026</p>
-    </footer>
 
 </body>
 </html>
