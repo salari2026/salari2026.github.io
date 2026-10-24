@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دفتر شعر سپید</title>
-    <!-- فونت نستعلیق و وزیر -->
+    <title>دفتر شعر </title>
+    <!-- فونت دلبر -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/iran-nastaliq-font@v1.0.0/dist/font-face.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500&display=swap" rel="stylesheet">
     
@@ -64,6 +64,12 @@
         }
 
         /* ۲. بخش شعر، عکس و دکلمه */
+        <div class="image-side">
+    <div class="image-frame">
+        <!-- اسم فایل عکس اپلود شده خود را به جای بدرقه.jpg بگذارید -->
+        <img src="poem-pic.jpg" alt="طرح شعر">
+    </div>
+</div>
         .poem-wrapper {
             display: flex;
             flex-direction: row-reverse;
@@ -84,6 +90,55 @@
         }
 
         .poem-text {
+            بدرقه
+
+این راه بدرقه شده را
+درین شب تابستانی
+دوباره
+چندباره قدم می گزارم
+
+عطر دریا و بوته ها و درختان
+نفسم سنگین است
+با موجی تکان نمی خورد
+تا ببینمت
+شاید یک بار هم که شده
+عوض شده است، تصمیمت
+
+دلم گرفته
+دلم گرفته
+!آی صندلی خالی
+سایه ی حضورت
+پاره ابری برجای مانده در آسمان دلم
+نمی گذرد
+نمی بارد
+
+آی صندلی خالی!
+دلم گرفته
+دست ام به دامنت
+به دور گردنت
+
+یادم افتاد
+از آن صبح برفی
+باران 
+شال گردنت
+دست هم گرفتنت
+شمرده شمرده حرف زدنت
+قدم به جاده گذاشتنت 
+
+آی صندلی خالی!
+دلم گرفته
+تو هم مثل همیشه حرف نمی زنی
+لبخند کنایه نمی زنی
+این نعش بی جان
+ لمیده درمیان اتاق
+این استکان خالی
+چقدر سنگین است
+
+صبح بعد از تو 
+دلگیر است
+
+
+
             font-family: 'IranNastaliq', serif;
             font-size: 2.2rem;
             line-height: 2.5;
@@ -95,6 +150,14 @@
         }
 
         /* پخش صوتی مینی‌مال */
+        <div class="audio-player">
+    <p>🎙️ خوانش شعر با صدای شاعر:</p>
+    <audio controls>
+        <!-- اسم فایل صوتی آپلود شده خود را به جای بدرقه.mp3 بگذارید -->
+        <source src="deklameh1.mp3" type="audio/mpeg">
+        مرورگر شما از پخش صوت پشتیبانی نمی‌کند.
+    </audio>
+</div>
         .audio-player {
             margin-top: 20px;
             padding: 12px;
