@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دفتر شعر سپید | عاقبت</title>
+    <!-- بارگذاری فونت دلبر و وزیر -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/delbar-font@v1.0.0/dist/font-face.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #f3ebd2;
+            --page-bg: #faf5eb;
+            --text-color: #231b17;
+            --sub-color: #8c7355;
+            --border-color: #dfd4b9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Vazirmatn', sans-serif;
+            padding: 40px 15px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .main-container {
+            max-width: 750px;
+            width: 100%;
+            background: var(--page-bg);
+            padding: 50px 40px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+        }
+
+        /* هدر مینی‌مال */
+        header {
+            text-align: center;
+            padding-bottom: 25px;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .site-title {
+            font-family: 'Delbar', cursive, serif;
+            font-size: 2.5rem;
+            color: var(--text-color);
+            margin-bottom: 5px;
+        }
+
+        .site-subtitle {
+            font-size: 0.85rem;
+            color: var(--sub-color);
+            letter-spacing: 0.5px;
+        }
+
+        /* بخش شعر (بدون عکس، تمام‌صفحه و متمرکز) */
+        .poem-section {
+            text-align: right;
+            margin-bottom: 30px;
+        }
+
+        .poem-date {
+            font-size: 0.8rem;
+            color: var(--sub-color);
+            margin-bottom: 20px;
+        }
+
+        .poem-title-main {
+            font-family: 'Delbar', cursive, serif;
+            font-size: 2.3rem;
+            color: var(--text-color);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .poem-text {
+            font-family: 'Delbar', cursive, serif;
+            font-size: 2.1rem;
+            line-height: 2.5;
+            color: var(--text-color);
+            white-space: pre-line;
+            direction: rtl;
+            unicode-bidi: plaintext;
+            margin-bottom: 35px;
+            text-align: center; /* شعرها در حالت بدون عکس زیباتر است مرکزچین یا راست‌چین باشن، راست‌چین کلاسیک‌تره */
+            text-align: right;
+            padding: 0 20px;
+        }
+
+        /* پخش صوتی دکلمه با فایل a.mp3 */
+        .audio-player {
+            max-width: 450px;
+            margin: 0 auto;
+            padding: 12px;
+            background-color: #f3ebd2;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+
+        .audio-player p {
+            font-size: 0.75rem;
+            color: var(--sub-color);
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        audio {
+            width: 100%;
+            height: 32px;
+        }
+
+        /* جابه‌جایی بین شعرها */
+        .poem-nav {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            margin: 40px 0;
+            border-top: 1px dotted var(--border-color);
+            border-bottom: 1px dotted var(--border-color);
+            font-size: 0.85rem;
+        }
+
+        .poem-nav a {
+            color: var(--sub-color);
+            text-decoration: none;
+        }
+
+        .poem-nav a:hover {
+            color: var(--text-color);
+        }
+
+        /* بخش کامنت‌ها */
+        .comments-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 0.95rem;
+            color: var(--sub-color);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .comment-form input,
+        .comment-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 12px;
+            border: 1px solid var(--border-color);
+            background-color: #fdfbf7;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 0.85rem;
+            color: var(--text-color);
+            border-radius: 2px;
+        }
+
+        .comment-form button {
+            background-color: var(--sub-color);
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 0.85rem;
+            cursor: pointer;
+            border-radius: 2px;
+        }
+
+        .comment-form button:hover {
+            opacity: 0.9;
+        }
+
+        /* پیوند دوستان */
+        .friends-links {
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .friends-links-list {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .friends-links-list a {
+            color: var(--sub-color);
+            text-decoration: none;
+            font-size: 0.85rem;
+            border-bottom: 1px dotted var(--sub-color);
+        }
+
+        .friends-links-list a:hover {
+            color: var(--text-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+
+        <!-- هدر سایت -->
+        <header>
+            <h1 class="site-title">دفتر شعر سپید</h1>
+            <p class="site-subtitle">دست‌نوشته‌ها و سروده‌ها</p>
+        </header>
+
+        <!-- شعر جدید (عاقبت) بدون عکس -->
+        <main class="poem-section">
+            <div class="poem-date">تازه‌سروده</div>
+            <h2 class="poem-title-main">عاقبت</h2>
+            
+            <div class="poem-text">
+عاقبت، روزهای خوشبختی ام  یافتم
+اما تو را درمیان آنها نه
+ 
+من ساختم خانه ام
+خانه ای پر از شادی
+در آن یک قاب عکس خالی هست
+عکس لبخند روزهای سر درگریبانی نه
+ 
+درلابلای روزهای زندگی من
+خستگی هست
+بی حوصگی هست
+گاهی، حرف تو هم هست
+اما خودت نه
+ 
+استادانه می گفتی :
+“یک روز می شود
+مرا از یاد برد”
+ما برای مدتی هم مسیر بودیم
+اما نقل قول هایت نه
+ 
+از تو آموختم جمع و منفی و ضرب و تقسیم
+اما جبر را نه
+ 
+هم کلاسی ها را هم می شود از یاد برد
+اما استاد را نه
+ 
+می شود قهر و دعوا و جواب ندادن هایت را کنار
+گذشت 
+اما دست خط زیبایت را نه
+ 
+می شود دفتر مشق از یاد برد
+گم کرد
+اما شعر نوشته در میان آن را نه
+            </div>
+
+            <!-- پخش صوتی دکلمه با فایل a.mp3 -->
+            <div class="audio-player">
+                <p>🎙️ خوانش شعر با صدای شاعر:</p>
+                <audio controls>
+                    <source src="a.mp3" type="audio/mpeg">
+                    مرورگر شما از پخش صوت پشتیبانی نمی‌کند.
+                </audio>
+            </div>
+        </main>
+
+        <!-- ناوبری به شعر قبلی -->
+        <nav class="poem-nav">
+            <a href="badraghe.html">← مشاهده شعر قبلی: «بدرقه»</a>
+        </nav>
+
+        <!-- بخش دیدگاه‌ها -->
+        <section class="comments-section">
+            <h2 class="section-title">دیدگاه شما</h2>
+            <form class="comment-form" onsubmit="event.preventDefault(); alert('دیدگاه شما ثبت شد.');">
+                <input type="text" placeholder="نام یا تخلص..." required>
+                <textarea rows="3" placeholder="حس و نظرتان درباره این شعر..." required></textarea>
+                <button type="submit">ارسال دیدگاه</button>
+            </form>
+        </section>
+
+        <!-- پیوند دوستان -->
+        <section class="friends-links">
+            <h2 class="section-title">پیوندها و وبلاگ دوستان</h2>
+            <ul class="friends-links-list">
+                <li><a href="#" target="_blank">دفتر شعر ادبی</a></li>
+                <li><a href="#" target="_blank">یادداشت‌های ادبی</a></li>
+            </ul>
+        </section>
+
+    </div>
+
+</body>
+</html>
