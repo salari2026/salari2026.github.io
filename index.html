@@ -3,126 +3,324 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خلوت شعر</title>
-    <!-- بارگذاری فونت زیبای نستعلیق و فونت ساده برای تاریخ -->
+    <title>دفتر شعر سپید</title>
+    <!-- فونت نستعلیق و وزیر -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/iran-nastaliq-font@v1.0.0/dist/font-face.css" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500&display=swap" rel="stylesheet">
     
     <style>
-        body {
-            /* پس‌زمینه گرم و کاغذی */
-            background-color: #f3ebd2;
-            color: #2c221e;
+        :root {
+            --bg-color: #f3ebd2;
+            --page-bg: #faf5eb;
+            --text-color: #231b17;
+            --sub-color: #8c7355;
+            --border-color: #dfd4b9;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Vazirmatn', sans-serif;
+            padding: 40px 15px;
             display: flex;
             justify-content: center;
-            align-items: center;
             min-height: 100vh;
         }
 
-        /* صفحه مینیمال با حاشیه ساده */
-        .page-container {
-            display: flex;
-            flex-direction: row-reverse; /* متن سمت راست، عکس سمت چپ */
-            gap: 50px;
-            max-width: 900px;
+        .main-container {
+            max-width: 850px;
             width: 100%;
-            background: #faf5eb;
-            padding: 60px 50px;
-            border: 1px solid #dfd4b9;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-            align-items: center;
+            background: var(--page-bg);
+            padding: 50px 40px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
         }
 
-        /* بخش متن شعر (سمت راست) */
+        /* ۱. هدر مینی‌مال */
+        header {
+            text-align: center;
+            padding-bottom: 25px;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .site-title {
+            font-family: 'IranNastaliq', serif;
+            font-size: 2.2rem;
+            color: var(--text-color);
+            margin-bottom: 5px;
+        }
+
+        .site-subtitle {
+            font-size: 0.85rem;
+            color: var(--sub-color);
+            letter-spacing: 0.5px;
+        }
+
+        /* ۲. بخش شعر، عکس و دکلمه */
+        .poem-wrapper {
+            display: flex;
+            flex-direction: row-reverse;
+            gap: 40px;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
         .poem-side {
             flex: 1;
             text-align: right;
         }
 
         .poem-date {
-            font-family: 'Vazirmatn', sans-serif;
-            font-size: 0.85rem;
-            color: #9c8568;
-            margin-bottom: 25px;
-            letter-spacing: 0.5px;
+            font-size: 0.8rem;
+            color: var(--sub-color);
+            margin-bottom: 20px;
         }
 
         .poem-text {
             font-family: 'IranNastaliq', serif;
-            font-size: 2.3rem; /* اندازه مناسب برای خوانایی نستعلیق */
-            line-height: 2.6;
-            color: #231b17;
+            font-size: 2.2rem;
+            line-height: 2.5;
+            color: var(--text-color);
             white-space: pre-line;
+            direction: rtl;
+            unicode-bidi: plaintext;
+            margin-bottom: 25px;
         }
 
-        /* بخش عکس یا طرح (سمت چپ) */
+        /* پخش صوتی مینی‌مال */
+        .audio-player {
+            margin-top: 20px;
+            padding: 12px;
+            background-color: #f3ebd2;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+
+        .audio-player p {
+            font-size: 0.75rem;
+            color: var(--sub-color);
+            margin-bottom: 8px;
+        }
+
+        audio {
+            width: 100%;
+            height: 32px;
+        }
+
         .image-side {
-            width: 300px;
+            width: 280px;
             flex-shrink: 0;
         }
 
         .image-frame {
             background: #fff;
-            padding: 8px;
-            border: 1px solid #e3d8c2;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            padding: 6px;
+            border: 1px solid var(--border-color);
         }
 
         .image-frame img {
             width: 100%;
             height: auto;
             display: block;
-            filter: sepia(15%) contrast(95%);
+            filter: sepia(10%);
         }
 
-        /* ریسپانسیو برای موبایل */
+        /* ۳. پیمایش شعر قبلی / بعدی */
+        .poem-nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            margin-bottom: 40px;
+            border-top: 1px dotted var(--border-color);
+            border-bottom: 1px dotted var(--border-color);
+            font-size: 0.85rem;
+        }
+
+        .poem-nav a {
+            color: var(--sub-color);
+            text-decoration: none;
+        }
+
+        .poem-nav a:hover {
+            color: var(--text-color);
+        }
+
+        /* ۴. یادداشت کوتاه درباره این دفتر */
+        .note-section {
+            font-size: 0.85rem;
+            color: var(--sub-color);
+            line-height: 1.8;
+            margin-bottom: 40px;
+            text-align: justify;
+            background: #f7f1e3;
+            padding: 15px 20px;
+            border-right: 2px solid var(--sub-color);
+        }
+
+        /* ۵. بخش کامنت‌ها */
+        .comments-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 0.95rem;
+            color: var(--sub-color);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .comment-form input,
+        .comment-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 12px;
+            border: 1px solid var(--border-color);
+            background-color: #fdfbf7;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 0.85rem;
+            color: var(--text-color);
+            border-radius: 2px;
+        }
+
+        .comment-form button {
+            background-color: var(--sub-color);
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 0.85rem;
+            cursor: pointer;
+            border-radius: 2px;
+        }
+
+        .comment-form button:hover {
+            opacity: 0.9;
+        }
+
+        /* ۶. پیوند دوستان */
+        .friends-links {
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .friends-links-list {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .friends-links-list a {
+            color: var(--sub-color);
+            text-decoration: none;
+            font-size: 0.85rem;
+            border-bottom: 1px dotted var(--sub-color);
+        }
+
+        .friends-links-list a:hover {
+            color: var(--text-color);
+        }
+
+        /* موبایل */
         @media (max-width: 768px) {
-            .page-container {
+            .poem-wrapper {
                 flex-direction: column-reverse;
-                padding: 30px 20px;
-                gap: 30px;
+                gap: 25px;
             }
             .image-side {
                 width: 100%;
-                max-width: 250px;
+                max-width: 220px;
                 margin: 0 auto;
             }
             .poem-text {
-                font-size: 2rem;
+                font-size: 1.9rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="page-container">
-        
-        <!-- بخش شعر و تاریخ (سمت راست) -->
-        <div class="poem-side">
-            <!-- تاریخ شعر به جای اسم شاعر -->
-            <div class="poem-date">پاییز ۱۴۰۴</div>
+    <div class="main-container">
 
-            <div class="poem-text">
-بی تو هر شب کوچه را پیموده‌ام
-خاطراتت را به جان اندوده‌ام
+        <!-- ۱. عنوان بالای صفحه -->
+        <header>
+            <h1 class="site-title">دفتر شعر سپید</h1>
+            <p class="site-subtitle">دست‌نوشته‌ها و سروده‌ها</p>
+        </header>
 
-در سکوتِ سردِ این بوم و بر
-نامِ زیبایت به لب بسروده‌ام
+        <!-- ۲. شعر، تصویر و دکلمه صوتی -->
+        <main class="poem-wrapper">
+            <div class="poem-side">
+                <div class="poem-date">پاییز ۱۴۰۴</div>
+                
+                <div class="poem-text">
+سکوت
+بلندتر از تمام واژه‌هاست!
 
-چون پرستوهای بی‌نام و نشان
-روی شاخسار زمان آسوده‌ام
+وقتی قدم می‌زنم
+در انتهای سالی که رفت...
+                </div>
+
+                <!-- پخش صوتی دکلمه -->
+                <div class="audio-player">
+                    <p>🎙️ خوانش شعر با صدای شاعر:</p>
+                    <audio controls>
+                        <source src="" type="audio/mpeg">
+                        مرورگر شما از پخش صوت پشتیبانی نمی‌کند.
+                    </audio>
+                </div>
             </div>
+
+            <div class="image-side">
+                <div class="image-frame">
+                    <img src="https://images.unsplash.com/photo-1516962215378-7fa2e137ae93?auto=format&fit=crop&w=600&q=80" alt="طرح شعر">
+                </div>
+            </div>
+        </main>
+
+        <!-- ۳. جابه‌جایی بین اشعار -->
+        <nav class="poem-nav">
+            <a href="#">← شعر قبلی: «سایه‌های شب»</a>
+            <a href="#">شعر بعدی: «آواز بی‌صدا» →</a>
+        </nav>
+
+        <!-- ۴. یادداشت کوتاه درباره دفتر -->
+        <div class="note-section">
+            این صفحه یک دفتر روزانه و شخصی برای ثبت شعرها و سروده‌های سپید است. هر شعر، برهه‌ای از تجربه و سکوت است.
         </div>
 
-        <!-- بخش عکس یا طرح گرافیکی (سمت چپ) -->
-        <div class="image-side">
-            <div class="image-frame">
-                <!-- می‌توانید لینک عکس یا طرح خود را اینجا قرار دهید -->
-                <img src="https://images.unsplash.com/photo-1516962215378-7fa2e137ae93?auto=format&fit=crop&w=600&q=80" alt="طرح گرافیکی شعر">
-            </div>
-        </div>
+        <!-- ۵. ثبت نظر خوانندگان -->
+        <section class="comments-section">
+            <h2 class="section-title">دیدگاه شما</h2>
+            <form class="comment-form" onsubmit="event.preventDefault(); alert('دیدگاه شما با موفقیت ثبت شد.');">
+                <input type="text" placeholder="نام یا تخلص..." required>
+                <textarea rows="3" placeholder="حس و نظرتان درباره این شعر..." required></textarea>
+                <button type="submit">ارسال دیدگاه</button>
+            </form>
+        </section>
+
+        <!-- ۶. پیوند دوستان و وبلاگ‌ها -->
+        <section class="friends-links">
+            <h2 class="section-title">پیوندها و وبلاگ دوستان</h2>
+            <ul class="friends-links-list">
+                <li><a href="#" target="_blank">دفتر شعر ادبی</a></li>
+                <li><a href="#" target="_blank">یادداشت‌های ادبی</a></li>
+                <li><a href="#" target="_blank">وبلاگ همکاران</a></li>
+            </ul>
+        </section>
 
     </div>
 
