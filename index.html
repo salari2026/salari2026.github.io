@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>خلوت شعر</title>
+    <!-- بارگذاری فونت زیبای نستعلیق و فونت ساده برای تاریخ -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/iran-nastaliq-font@v1.0.0/dist/font-face.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300&display=swap" rel="stylesheet">
     
     <style>
         body {
+            /* پس‌زمینه گرم و کاغذی */
             background-color: #f3ebd2;
             color: #2c221e;
             margin: 0;
@@ -19,9 +21,10 @@
             min-height: 100vh;
         }
 
+        /* صفحه مینیمال با حاشیه ساده */
         .page-container {
             display: flex;
-            flex-direction: row-reverse;
+            flex-direction: row-reverse; /* متن سمت راست، عکس سمت چپ */
             gap: 50px;
             max-width: 900px;
             width: 100%;
@@ -32,6 +35,7 @@
             align-items: center;
         }
 
+        /* بخش متن شعر (سمت راست) */
         .poem-side {
             flex: 1;
             text-align: right;
@@ -47,14 +51,13 @@
 
         .poem-text {
             font-family: 'IranNastaliq', serif;
-            font-size: 2.3rem;
+            font-size: 2.3rem; /* اندازه مناسب برای خوانایی نستعلیق */
             line-height: 2.6;
             color: #231b17;
             white-space: pre-line;
-            direction: rtl;
-            unicode-bidi: plaintext;
         }
 
+        /* بخش عکس یا طرح (سمت چپ) */
         .image-side {
             width: 300px;
             flex-shrink: 0;
@@ -74,6 +77,7 @@
             filter: sepia(15%) contrast(95%);
         }
 
+        /* ریسپانسیو برای موبایل */
         @media (max-width: 768px) {
             .page-container {
                 flex-direction: column-reverse;
@@ -95,62 +99,27 @@
 
     <div class="page-container">
         
+        <!-- بخش شعر و تاریخ (سمت راست) -->
         <div class="poem-side">
+            <!-- تاریخ شعر به جای اسم شاعر -->
             <div class="poem-date">پاییز ۱۴۰۴</div>
 
             <div class="poem-text">
-بدرقه
+بی تو هر شب کوچه را پیموده‌ام
+خاطراتت را به جان اندوده‌ام
 
-این راه بدرقه شده را
-درین شب تابستانی
-دوباره
-چندباره قدم می گزارم
+در سکوتِ سردِ این بوم و بر
+نامِ زیبایت به لب بسروده‌ام
 
-عطر دریا و بوته ها و درختان
-نفسم سنگین است
-با موجی تکان نمی خورد
-تا ببینمت
-شاید یک بار هم که شده
-عوض شده است، تصمیمت
-
-دلم گرفته
-دلم گرفته
-!آی صندلی خالی
-سایه ی حضورت
-پاره ابری برجای مانده در آسمان دلم
-نمی گذرد
-نمی بارد
-
-آی صندلی خالی!
-دلم گرفته
-دست ام به دامنت
-به دور گردنت
-
-یادم افتاد
-از آن صبح برفی
-باران 
-شال گردنت
-دست هم گرفتنت
-شمرده شمرده حرف زدنت
-قدم به جاده گذاشتنت 
-
-آی صندلی خالی!
-دلم گرفته
-تو هم مثل همیشه حرف نمی زنی
-لبخند کنایه نمی زنی
-این نعش بی جان
- لمیده درمیان اتاق
-این استکان خالی
-چقدر سنگین است
-
-صبح بعد از تو 
-دلگیر است
-
+چون پرستوهای بی‌نام و نشان
+روی شاخسار زمان آسوده‌ام
             </div>
         </div>
 
+        <!-- بخش عکس یا طرح گرافیکی (سمت چپ) -->
         <div class="image-side">
             <div class="image-frame">
+                <!-- می‌توانید لینک عکس یا طرح خود را اینجا قرار دهید -->
                 <img src="https://images.unsplash.com/photo-1516962215378-7fa2e137ae93?auto=format&fit=crop&w=600&q=80" alt="طرح گرافیکی شعر">
             </div>
         </div>
