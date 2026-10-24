@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>خلوت شعر</title>
-    <!-- بارگذاری فونت زیبای نستعلیق و فونت ساده برای تاریخ -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/iran-nastaliq-font@v1.0.0/dist/font-face.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300&display=swap" rel="stylesheet">
     
     <style>
         body {
-            /* پس‌زمینه گرم و کاغذی */
             background-color: #f3ebd2;
             color: #2c221e;
             margin: 0;
@@ -21,10 +19,9 @@
             min-height: 100vh;
         }
 
-        /* صفحه مینیمال با حاشیه ساده */
         .page-container {
             display: flex;
-            flex-direction: row-reverse; /* متن سمت راست، عکس سمت چپ */
+            flex-direction: row-reverse;
             gap: 50px;
             max-width: 900px;
             width: 100%;
@@ -35,7 +32,6 @@
             align-items: center;
         }
 
-        /* بخش متن شعر (سمت راست) */
         .poem-side {
             flex: 1;
             text-align: right;
@@ -51,13 +47,14 @@
 
         .poem-text {
             font-family: 'IranNastaliq', serif;
-            font-size: 2.3rem; /* اندازه مناسب برای خوانایی نستعلیق */
+            font-size: 2.3rem;
             line-height: 2.6;
             color: #231b17;
             white-space: pre-line;
+            direction: rtl;
+            unicode-bidi: plaintext;
         }
 
-        /* بخش عکس یا طرح (سمت چپ) */
         .image-side {
             width: 300px;
             flex-shrink: 0;
@@ -77,7 +74,6 @@
             filter: sepia(15%) contrast(95%);
         }
 
-        /* ریسپانسیو برای موبایل */
         @media (max-width: 768px) {
             .page-container {
                 flex-direction: column-reverse;
@@ -99,9 +95,7 @@
 
     <div class="page-container">
         
-        <!-- بخش شعر و تاریخ (سمت راست) -->
         <div class="poem-side">
-            <!-- تاریخ شعر به جای اسم شاعر -->
             <div class="poem-date">پاییز ۱۴۰۴</div>
 
             <div class="poem-text">
@@ -152,15 +146,11 @@
 صبح بعد از تو 
 دلگیر است
 
-
-
             </div>
         </div>
 
-        <!-- بخش عکس یا طرح گرافیکی (سمت چپ) -->
         <div class="image-side">
             <div class="image-frame">
-                <!-- می‌توانید لینک عکس یا طرح خود را اینجا قرار دهید -->
                 <img src="https://images.unsplash.com/photo-1516962215378-7fa2e137ae93?auto=format&fit=crop&w=600&q=80" alt="طرح گرافیکی شعر">
             </div>
         </div>
