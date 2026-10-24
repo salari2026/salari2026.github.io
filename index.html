@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دفتر شعر </title>
-    <!-- فونت دلبر -->
+    <title>دفتر شعر سپید</title>
+    <!-- فونت نستعلیق و وزیر -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/iran-nastaliq-font@v1.0.0/dist/font-face.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500&display=swap" rel="stylesheet">
     
@@ -42,7 +42,7 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
         }
 
-        /* ۱. هدر مینی‌مال */
+        /* هدر مینی‌مال */
         header {
             text-align: center;
             padding-bottom: 25px;
@@ -63,13 +63,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* ۲. بخش شعر، عکس و دکلمه */
-        <div class="image-side">
-    <div class="image-frame">
-        <!-- اسم فایل عکس اپلود شده خود را به جای بدرقه.jpg بگذارید -->
-        <img src="poem-pic.jpg" alt="طرح شعر">
-    </div>
-</div>
+        /* بخش شعر، عکس و دکلمه */
         .poem-wrapper {
             display: flex;
             flex-direction: row-reverse;
@@ -90,58 +84,9 @@
         }
 
         .poem-text {
-            بدرقه
-
-این راه بدرقه شده را
-درین شب تابستانی
-دوباره
-چندباره قدم می گزارم
-
-عطر دریا و بوته ها و درختان
-نفسم سنگین است
-با موجی تکان نمی خورد
-تا ببینمت
-شاید یک بار هم که شده
-عوض شده است، تصمیمت
-
-دلم گرفته
-دلم گرفته
-!آی صندلی خالی
-سایه ی حضورت
-پاره ابری برجای مانده در آسمان دلم
-نمی گذرد
-نمی بارد
-
-آی صندلی خالی!
-دلم گرفته
-دست ام به دامنت
-به دور گردنت
-
-یادم افتاد
-از آن صبح برفی
-باران 
-شال گردنت
-دست هم گرفتنت
-شمرده شمرده حرف زدنت
-قدم به جاده گذاشتنت 
-
-آی صندلی خالی!
-دلم گرفته
-تو هم مثل همیشه حرف نمی زنی
-لبخند کنایه نمی زنی
-این نعش بی جان
- لمیده درمیان اتاق
-این استکان خالی
-چقدر سنگین است
-
-صبح بعد از تو 
-دلگیر است
-
-
-
             font-family: 'IranNastaliq', serif;
             font-size: 2.2rem;
-            line-height: 2.5;
+            line-height: 2.6;
             color: var(--text-color);
             white-space: pre-line;
             direction: rtl;
@@ -149,15 +94,7 @@
             margin-bottom: 25px;
         }
 
-        /* پخش صوتی مینی‌مال */
-        <div class="audio-player">
-    <p>🎙️ خوانش شعر با صدای شاعر:</p>
-    <audio controls>
-        <!-- اسم فایل صوتی آپلود شده خود را به جای بدرقه.mp3 بگذارید -->
-        <source src="deklameh1.mp3" type="audio/mpeg">
-        مرورگر شما از پخش صوت پشتیبانی نمی‌کند.
-    </audio>
-</div>
+        /* پخش صوتی دکلمه */
         .audio-player {
             margin-top: 20px;
             padding: 12px;
@@ -195,39 +132,7 @@
             filter: sepia(10%);
         }
 
-        /* ۳. پیمایش شعر قبلی / بعدی */
-        .poem-nav {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px 0;
-            margin-bottom: 40px;
-            border-top: 1px dotted var(--border-color);
-            border-bottom: 1px dotted var(--border-color);
-            font-size: 0.85rem;
-        }
-
-        .poem-nav a {
-            color: var(--sub-color);
-            text-decoration: none;
-        }
-
-        .poem-nav a:hover {
-            color: var(--text-color);
-        }
-
-        /* ۴. یادداشت کوتاه درباره این دفتر */
-        .note-section {
-            font-size: 0.85rem;
-            color: var(--sub-color);
-            line-height: 1.8;
-            margin-bottom: 40px;
-            text-align: justify;
-            background: #f7f1e3;
-            padding: 15px 20px;
-            border-right: 2px solid var(--sub-color);
-        }
-
-        /* ۵. بخش کامنت‌ها */
+        /* بخش کامنت‌ها */
         .comments-section {
             margin-top: 40px;
             padding-top: 30px;
@@ -269,7 +174,7 @@
             opacity: 0.9;
         }
 
-        /* ۶. پیوند دوستان */
+        /* پیوند دوستان */
         .friends-links {
             margin-top: 40px;
             padding-top: 25px;
@@ -318,70 +223,101 @@
 
     <div class="main-container">
 
-        <!-- ۱. عنوان بالای صفحه -->
+        <!-- هدر سایت -->
         <header>
             <h1 class="site-title">دفتر شعر سپید</h1>
             <p class="site-subtitle">دست‌نوشته‌ها و سروده‌ها</p>
         </header>
 
-        <!-- ۲. شعر، تصویر و دکلمه صوتی -->
+        <!-- شعر، تصویر و دکلمه -->
         <main class="poem-wrapper">
             <div class="poem-side">
-                <div class="poem-date">پاییز ۱۴۰۴</div>
+                <div class="poem-date">شب تابستانی</div>
                 
                 <div class="poem-text">
-سکوت
-بلندتر از تمام واژه‌هاست!
+بدرقه
+ 
+این راه بدرقه شده را
+درین شب تابستانی
+دوباره
+چندباره قدم می گزارم
+ 
+عطر دریا و بوته ها و درختان
+نفسم سنگین است
+با موجی تکان نمی خورد
+تا ببینمت
+شاید یک بار هم که شده
+عوض شده است، تصمیمت
+ 
+دلم گرفته
+دلم گرفته
 
-وقتی قدم می‌زنم
-در انتهای سالی که رفت...
+آی صندلی خالی!
+سایه ی حضورت
+پاره ابری برجای مانده در آسمان دلم
+نمی گذرد
+نمی بارد
+ 
+آی صندلی خالی!
+دلم گرفته
+دست ام به دامنت
+به دور گردنت
+ 
+یادم افتاد
+از آن صبح برفی
+باران 
+شال گردنت
+دست هم گرفتنت
+شمرده شمرده حرف زدنت
+قدم به جاده گذاشتنت 
+ 
+آی صندلی خالی!
+دلم گرفته
+تو هم مثل همیشه حرف نمی زنی
+لبخند کنایه نمی زنی
+این نعش بی جان
+لمیده درمیان اتاق
+این استکان خالی
+چقدر سنگین است
+ 
+صبح بعد از تو 
+دلگیر است
                 </div>
 
-                <!-- پخش صوتی دکلمه -->
+                <!-- پخش صوتی دکلمه با فایل b.mp3 -->
                 <div class="audio-player">
                     <p>🎙️ خوانش شعر با صدای شاعر:</p>
                     <audio controls>
-                        <source src="" type="audio/mpeg">
+                        <source src="b.mp3" type="audio/mpeg">
                         مرورگر شما از پخش صوت پشتیبانی نمی‌کند.
                     </audio>
                 </div>
             </div>
 
+            <!-- عکس با فایل b.jpj -->
             <div class="image-side">
                 <div class="image-frame">
-                    <img src="https://images.unsplash.com/photo-1516962215378-7fa2e137ae93?auto=format&fit=crop&w=600&q=80" alt="طرح شعر">
+                    <img src="b.jpj" alt="تصویر شعر بدرقه">
                 </div>
             </div>
         </main>
 
-        <!-- ۳. جابه‌جایی بین اشعار -->
-        <nav class="poem-nav">
-            <a href="#">← شعر قبلی: «سایه‌های شب»</a>
-            <a href="#">شعر بعدی: «آواز بی‌صدا» →</a>
-        </nav>
-
-        <!-- ۴. یادداشت کوتاه درباره دفتر -->
-        <div class="note-section">
-            این صفحه یک دفتر روزانه و شخصی برای ثبت شعرها و سروده‌های سپید است. هر شعر، برهه‌ای از تجربه و سکوت است.
-        </div>
-
-        <!-- ۵. ثبت نظر خوانندگان -->
+        <!-- بخش دیدگاه‌ها -->
         <section class="comments-section">
             <h2 class="section-title">دیدگاه شما</h2>
-            <form class="comment-form" onsubmit="event.preventDefault(); alert('دیدگاه شما با موفقیت ثبت شد.');">
+            <form class="comment-form" onsubmit="event.preventDefault(); alert('دیدگاه شما ثبت شد.');">
                 <input type="text" placeholder="نام یا تخلص..." required>
                 <textarea rows="3" placeholder="حس و نظرتان درباره این شعر..." required></textarea>
                 <button type="submit">ارسال دیدگاه</button>
             </form>
         </section>
 
-        <!-- ۶. پیوند دوستان و وبلاگ‌ها -->
+        <!-- پیوند دوستان -->
         <section class="friends-links">
             <h2 class="section-title">پیوندها و وبلاگ دوستان</h2>
             <ul class="friends-links-list">
                 <li><a href="#" target="_blank">دفتر شعر ادبی</a></li>
                 <li><a href="#" target="_blank">یادداشت‌های ادبی</a></li>
-                <li><a href="#" target="_blank">وبلاگ همکاران</a></li>
             </ul>
         </section>
 
