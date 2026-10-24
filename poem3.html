@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>شاید بدانی | شعر سپید</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-base: #f7f3e9; --bg-card: #f2ece0; --bg-accent: #e9e0ce;
+      --text-main: #2c2520; --text-muted: #6b5e52; --text-poem: #1e1814;
+      --accent: #8c4a32; --accent-hover: #6a3522; --border-color: #d8cdb8;
+      --shadow-color: rgba(44, 37, 32, 0.07); --font-family: 'Vazirmatn', sans-serif;
+    }
+    [data-theme="dark"] {
+      --bg-base: #1c1815; --bg-card: #25201c; --bg-accent: #2d2722;
+      --text-main: #d8cdb8; --text-muted: #9e9182; --text-poem: #ebdcc9;
+      --accent: #d48a6a; --accent-hover: #e59f80; --border-color: #3d342d;
+      --shadow-color: rgba(0, 0, 0, 0.3);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-base); color: var(--text-main);
+      font-family: var(--font-family); line-height: 1.8;
+      min-height: 100vh; display: flex; flex-direction: column; position: relative;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; width: 100%; position: relative; z-index: 2; }
+    header { padding: 24px 0; border-bottom: 1px solid var(--border-color); margin-bottom: 40px; }
+    nav { display: flex; gap: 20px; align-items: center; }
+    nav a { color: var(--text-muted); text-decoration: none; font-size: 0.95rem; }
+    nav a:hover, nav a.active { color: var(--accent); font-weight: 500; }
+    .theme-toggle { background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-main); padding: 6px 14px; border-radius: 20px; cursor: pointer; font-size: 0.85rem; font-family: inherit; }
+    .poem-layout { display: grid; grid-template-columns: 1fr 340px; gap: 48px; margin-bottom: 60px; align-items: start; }
+    .poem-column { text-align: right; }
+    .poem-date { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 12px; }
+    .poem-title { font-size: 2.2rem; font-weight: 700; color: var(--text-poem); margin-bottom: 32px; }
+    .poem-content { font-size: 1.15rem; line-height: 2.3; color: var(--text-poem); margin-bottom: 40px; }
+    .poem-stanza { margin-bottom: 28px; }
+    .poem-stanza p { margin-bottom: 4px; }
+    
+    .poem-artwork { background-color: var(--bg-card); border: 1px solid var(--border-color); padding: 10px; border-radius: 14px; box-shadow: 0 8px 24px var(--shadow-color); margin-bottom: 20px; }
+    .artwork-img-wrapper { width: 100%; height: 380px; overflow: hidden; border-radius: 10px; background-color: var(--bg-accent); }
+    .artwork-img-wrapper img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    
+    .audio-card { background-color: var(--bg-card); border: 1px solid var(--border-color); padding: 20px; border-radius: 12px; }
+    .audio-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .audio-icon { width: 38px; height: 38px; background-color: var(--bg-accent); color: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .audio-info h4 { font-size: 0.95rem; font-weight: 600; }
+    .audio-info p { font-size: 0.8rem; color: var(--text-muted); }
+    audio { width: 100%; height: 40px; }
+    
+    .poem-navigation { display: flex; justify-content: space-between; padding: 24px 0; margin: 40px 0; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+    .nav-poem-link { text-decoration: none; color: var(--text-muted); display: flex; flex-direction: column; }
+    .nav-poem-link span { font-size: 0.8rem; }
+    .nav-poem-link strong { font-size: 1rem; color: var(--text-main); }
+    .nav-poem-link:hover { color: var(--accent); }
+    
+    footer { background-color: var(--bg-card); border-top: 1px solid var(--border-color); padding: 36px 0 24px; margin-top: auto; text-align: center; }
+    .copyright { font-size: 0.8rem; color: var(--text-muted); }
+    @media (max-width: 850px) { .poem-layout { grid-template-columns: 1fr; gap: 32px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="poem1.html">صفحه اصلی</a>
+        <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">حالت شب 🌙</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="poem-layout">
+      <article class="poem-column">
+        <div class="poem-date"><span>📅</span> پاییز ۱۴۰۰</div>
+        <h1 class="poem-title">شاید بدانی</h1>
+        <div class="poem-content">
+          <div class="poem-stanza"><p>شاید بدانی</p><p>جسم من در میان چهار دیوار سمتی گیر افتاده است</p><p>دلم هوای سیگار کرده است</p><p>تا بر لب گذاشته شود</p><p>طعم دهانم را تغییر دهد</p></div>
+          <div class="poem-stanza"><p>اما در میان جنگل</p><p>کوه</p><p>دریا</p><p>و گاهی در خیال</p><p>در دشت ناهموار</p><p>یکی مثل من، یکی مثل تو</p><p>فقط زندگی می کنند</p></div>
+          <div class="poem-stanza"><p>شب است</p><p>به سکوت گوش سپرده ام</p><p>باد کویر را با خودش می برد</p><p>باران شسته رفته می رود</p><p>پرنده آواز می خواند</p><p>خورشید بی وقفه می تابد</p></div>
+          <div class="poem-stanza"><p>اتفاقا در زیر سقف امن هستم</p><p>قلبم به جای دیگری می تپد</p><p>مشتی از خاک باد آورده</p><p>هیمه ای و آتش باران خورده</p><p>خاکستر</p><p>فکر و روح</p><p>سر وگردن</p><p>دست و پا شده اند</p><p>که هیچ تجانسی با هم ندارند</p></div>
+        </div>
+      </article>
+
+      <aside class="media-column">
+        <div class="poem-artwork">
+          <div class="artwork-img-wrapper">
+            <img src="c.jpeg" alt="شاید بدانی">
+          </div>
+        </div>
+        <div class="audio-card">
+          <div class="audio-card-header">
+            <div class="audio-icon">🎙️</div>
+            <div class="audio-info">
+              <h4>شعر با صدای شما</h4>
+              <p>دکلمه c.mp3</p>
+            </div>
+          </div>
+          <audio controls><source src="c.mp3" type="audio/mpeg"></audio>
+        </div>
+      </aside>
+    </div>
+
+    <div class="poem-navigation">
+      <a href="poem2.html" class="nav-poem-link">
+        <span>← شعر قبلی</span>
+        <strong>بدرقه</strong>
+      </a>
+      <a href="poem1.html" class="nav-poem-link" style="text-align: left;">
+        <span>شعر بعدی (بازگشت به اول) →</span>
+        <strong>عاقبت</strong>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container"><div class="copyright">تمامی حقوق اشعار متعلق به شاعر است.</div></div>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      document.documentElement.setAttribute('data-theme', isDark ? '' : 'dark');
+      document.getElementById('themeToggle').textContent = isDark ? 'حالت شب 🌙' : 'حالت روز ☀️';
+    }
+  </script>
+</body>
+</html>
