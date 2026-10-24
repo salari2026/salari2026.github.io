@@ -80,31 +80,23 @@
     }
 
     /* ======================================================
-       هدر (بدون عنوان‌های اضافی حذف شده)
+       هدر جدید (راست‌چین شده و بدون عنوان اضافی)
        ====================================================== */
     header {
-      padding: 28px 0;
+      padding: 24px 0;
       border-bottom: 1px solid var(--border-color);
       margin-bottom: 40px;
     }
 
     .header-inner {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
-    }
-
-    .author-name {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--accent);
-      text-decoration: none;
-      letter-spacing: -0.3px;
     }
 
     nav {
       display: flex;
-      gap: 24px;
+      gap: 20px;
       align-items: center;
     }
 
@@ -117,10 +109,11 @@
 
     nav a:hover, nav a.active {
       color: var(--accent);
+      font-weight: 500;
     }
 
     .theme-toggle {
-      background: none;
+      background: var(--bg-card);
       border: 1px solid var(--border-color);
       color: var(--text-main);
       padding: 6px 14px;
@@ -133,6 +126,7 @@
 
     .theme-toggle:hover {
       background-color: var(--bg-accent);
+      border-color: var(--accent);
     }
 
     /* ======================================================
@@ -151,16 +145,14 @@
       text-align: right;
     }
 
-    .poem-badge {
-      display: inline-block;
-      background-color: var(--bg-accent);
-      color: var(--accent);
-      font-size: 0.8rem;
-      font-weight: 500;
-      padding: 4px 12px;
-      border-radius: 12px;
-      margin-bottom: 16px;
-      border: 1px solid var(--border-color);
+    .poem-date {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+      font-weight: 400;
     }
 
     .poem-title {
@@ -507,14 +499,12 @@
 </head>
 <body>
 
-  <!-- هدر (بدون عنوان‌های حذف شده) -->
+  <!-- هدر ساده (فقط شامل لینک‌ها و کلید حالت شب) -->
   <header>
     <div class="container header-inner">
-      <a href="#" class="author-name">نام شاعر / صفحه شخصی</a>
       <nav>
-        <a href="#" class="active">اشعار</a>
+        <a href="#" class="active">صفحه اصلی</a>
         <a href="#">درباره من</a>
-        <a href="#">تماس</a>
         <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">حالت شب 🌙</button>
       </nav>
     </div>
@@ -525,7 +515,10 @@
       
       <!-- ستون شعر (سمت راست) -->
       <article class="poem-column">
-        <span class="poem-badge">تازه‌سروده</span>
+        <!-- تاریخ سروده شدن شعر -->
+        <div class="poem-date">
+          <span>📅</span> ۲۴ مهر ۱۴۰۳
+        </div>
         <h1 class="poem-title">عاقبت</h1>
 
         <div class="poem-content">
@@ -608,7 +601,6 @@
               <p>خوانش با صدای شاعر</p>
             </div>
           </div>
-          <!-- آدرس فایل mp3 دکلمه خود را در src جایگزین کنید -->
           <audio controls>
             <source src="deklame-aghabat.mp3" type="audio/mpeg">
             مرورگر شما از پخش‌کننده صوتی پشتیبانی نمی‌کند.
